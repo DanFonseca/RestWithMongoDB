@@ -1,6 +1,7 @@
 package br.com.restwithmongodb.demo.Models.Entities;
 
 import br.com.restwithmongodb.demo.DTO.AuthorDTO;
+import br.com.restwithmongodb.demo.DTO.CommentDTO;
 import br.com.restwithmongodb.demo.DTO.UserDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
@@ -21,7 +22,7 @@ public class Post {
     private String body;
 
     private AuthorDTO author;
-    private List<Comment> comments = new ArrayList<>();
+    private List<CommentDTO> comments = new ArrayList<>();
 
     public Post(String id, Date date, String title, String body, AuthorDTO author) {
         this.id = id;
@@ -66,11 +67,11 @@ public class Post {
         this.body = body;
     }
 
-    public List<Comment> getComments() {
+    public List<CommentDTO> getComments() {
         return comments;
     }
 
-    public void addComments(Comment comment) {
+    public void addComments(CommentDTO comment) {
         this.comments.add(comment);
     }
 

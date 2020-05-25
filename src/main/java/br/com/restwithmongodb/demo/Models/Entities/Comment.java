@@ -1,5 +1,6 @@
 package br.com.restwithmongodb.demo.Models.Entities;
 
+import br.com.restwithmongodb.demo.DTO.AuthorDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;
@@ -10,10 +11,10 @@ public class Comment {
     private String text;
     private Date date;
 
-    private User author;
+    private AuthorDTO author;
     private Post post;
 
-    public Comment(String id, String text, Date date, User author, Post post) {
+    public Comment(String id, String text, Date date, AuthorDTO author, Post post) {
         this.id = id;
         this.text = text;
         this.date = date;
@@ -49,11 +50,11 @@ public class Comment {
     }
 
 
-    public User getAuthor() {
+    public AuthorDTO getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(AuthorDTO author) {
         this.author = author;
     }
 
