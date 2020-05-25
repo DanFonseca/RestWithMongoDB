@@ -11,6 +11,9 @@ public class AuthorDTO {
         this.id = user.getId();
     }
 
+    public AuthorDTO() {
+    }
+
     public String getName() {
         return name;
     }

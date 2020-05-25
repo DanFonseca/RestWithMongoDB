@@ -4,6 +4,7 @@ import br.com.restwithmongodb.demo.DTO.AuthorDTO;
 import br.com.restwithmongodb.demo.DTO.UserDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
@@ -73,12 +74,10 @@ public class Post {
         this.comments.add(comment);
     }
 
-
     public AuthorDTO getAuthor() {
         return author;
     }
 
-    @JsonIgnore
     public void setAuthor(AuthorDTO author) {
         this.author = author;
     }

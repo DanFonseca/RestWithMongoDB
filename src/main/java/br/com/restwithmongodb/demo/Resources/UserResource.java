@@ -1,6 +1,7 @@
 package br.com.restwithmongodb.demo.Resources;
 
 import br.com.restwithmongodb.demo.DTO.UserDTO;
+import br.com.restwithmongodb.demo.Models.Entities.Post;
 import br.com.restwithmongodb.demo.Models.Entities.User;
 import br.com.restwithmongodb.demo.Servces.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,12 @@ public class UserResource {
     {
        User user = userServices.update(id, userServices.fromDto(userDTO));
        return ResponseEntity.ok().body(user);
+    }
+
+    @GetMapping(value="{id}/posts")
+    public ResponseEntity<List<Post>> postsById(@PathVariable String id){
+        User user = userServices.findById(id);
+        return ResponseEntity.ok().body(user.getPosts());
     }
 
 }
