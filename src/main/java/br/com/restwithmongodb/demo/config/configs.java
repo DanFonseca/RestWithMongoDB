@@ -41,7 +41,10 @@ public class configs implements CommandLineRunner  {
         sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
         Post post1 = new Post(null,sdf.parse("2018-03-21") ,"Partiu Viagem", "Vou viajar para SP. Abraços!", new AuthorDTO(daniel));
         Post post2 = new Post(null, sdf.parse("2018-08-23"),"Bom dia!", "Acordei Feliz hoje!", new AuthorDTO(daniel));
-        postRepository.saveAll(Arrays.asList(post1,post2));
+        daniel.addPost(post1);
+        daniel.addPost(post2);
 
+        postRepository.saveAll(Arrays.asList(post1,post2));
+        userRepository.save(daniel);
     }
 }

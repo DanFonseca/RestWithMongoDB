@@ -3,6 +3,7 @@ package br.com.restwithmongodb.demo.Models.Entities;
 import br.com.restwithmongodb.demo.DTO.AuthorDTO;
 import br.com.restwithmongodb.demo.DTO.UserDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.Objects;
 
 @Document
 public class Post {
+    @Id
     private String id;
     private Date date;
     private String title;

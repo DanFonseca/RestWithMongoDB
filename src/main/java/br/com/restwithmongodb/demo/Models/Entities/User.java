@@ -1,6 +1,7 @@
 package br.com.restwithmongodb.demo.Models.Entities;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class User {
     private String name;
     private String email;
 
+    @DBRef(lazy = true)
     List<Post> posts = new ArrayList<>();
 
     public User(String id, String name, String email) {
