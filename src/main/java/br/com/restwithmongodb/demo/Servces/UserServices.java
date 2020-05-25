@@ -42,6 +42,7 @@ public class UserServices {
         return user;
     }
 
+
     public void updateData (User user, User newUser){
        user.setEmail(newUser.getEmail());
        user.setName(newUser.getName());

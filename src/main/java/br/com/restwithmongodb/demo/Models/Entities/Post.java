@@ -1,22 +1,26 @@
 package br.com.restwithmongodb.demo.Models.Entities;
 
+import br.com.restwithmongodb.demo.DTO.AuthorDTO;
+import br.com.restwithmongodb.demo.DTO.UserDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@Document
 public class Post {
     private String id;
     private Date date;
     private String title;
     private String body;
 
-    private User author;
+    private AuthorDTO author;
     private List<Comment> comments = new ArrayList<>();
 
-    public Post(String id, Date date, String title, String body, User author) {
+    public Post(String id, Date date, String title, String body, AuthorDTO author) {
         this.id = id;
         this.date = date;
         this.title = title;
@@ -68,12 +72,12 @@ public class Post {
     }
 
 
-    public User getAuthor() {
+    public AuthorDTO getAuthor() {
         return author;
     }
 
     @JsonIgnore
-    public void setAuthor(User author) {
+    public void setAuthor(AuthorDTO author) {
         this.author = author;
     }
 
