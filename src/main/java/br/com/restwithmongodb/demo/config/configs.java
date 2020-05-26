@@ -39,22 +39,24 @@ public class configs implements CommandLineRunner  {
         User daniel = new User(null, "Daniel Freiras", "daniel@gmail.com");
         userRepository.saveAll(Arrays.asList(maria,alex,bob, daniel));
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-        Post post1 = new Post(null,sdf.parse("2018-03-21") ,"Partiu Viagem", "Vou viajar para SP. Abraços!", new AuthorDTO(daniel));
-        Post post2 = new Post(null, sdf.parse("2018-08-23"),"Bom dia!", "Acordei Feliz hoje!", new AuthorDTO(daniel));
+
+        Post post1 = new Post(null,sdf.parse("21/03/2018") ,"Partiu Viagem", "Vou viajar para SP. Abraços!", new AuthorDTO(daniel));
+        Post post2 = new Post(null, sdf.parse("23/08/2018"),"Bom dia!", "Acordei Feliz hoje!", new AuthorDTO(daniel));
 
         daniel.addPost(post1);
         daniel.addPost(post2);
         postRepository.saveAll(Arrays.asList(post1,post2));
         userRepository.save(daniel);
 
-        Comment comment1 =  new Comment(null, "Boa viagem mano!", sdf.parse("2018-03-21"), new AuthorDTO(alex),post1);
-        Comment comment2 =  new Comment(null, "Aproveite!", sdf.parse("2018-03-22"), new AuthorDTO(bob),post1);
-        Comment comment3 =  new Comment(null, "Tenha um ótimo dia!", sdf.parse("2018-03-21"), new AuthorDTO(alex),post2);
+        Comment comment1 =  new Comment(null, "Boa viagem mano!", sdf.parse("21/03/2018"), new AuthorDTO(alex),post1);
+        Comment comment2 =  new Comment(null, "Aproveite!", sdf.parse("22/03/2018"), new AuthorDTO(bob),post1);
+        Comment comment3 =  new Comment(null, "Tenha um ótimo dia!", sdf.parse("21/03/2018"), new AuthorDTO(alex),post2);
 
         post1.getComments().addAll
                 (Arrays.asList(new CommentDTO(comment1), new CommentDTO(comment2)));
+
         post2.addComments(new CommentDTO(comment3));
         postRepository.saveAll(Arrays.asList(post1, post2));
 
